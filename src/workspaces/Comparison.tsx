@@ -1,0 +1,26 @@
+import { GitCompareArrows, Plus } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { useAscentStore } from '../app/store';
+import { EmptyState, Panel } from '../ui/Panel';
+import { pairs, TelemetryChart } from '../ui/TelemetryChart';
+import { formatNumber } from '../ui/format';
+
+function difference(a: number,b:number) { return { absolute:b-a, percent:a===0?null:((b-a)/Math.abs(a))*100 }; }
+
+export function Comparison() {
+  const { runs, setWorkspace } = useAscentStore();
+  const [firstId,setFirstId]=useState(runs[0]?.id??'');
+  const [secondId,setSecondId]=useState(runs[1]?.id??runs[0]?.id??'');
+  const first=runs.find(run=>run.id===firstId)??runs[0];
+  const second=runs.find(run=>run.id===secondId)??runs[1]??runs[0];
+  const rows=useMemo(()=>first&&second?[
+    ['Peak altitude (km)',first.summary.peakAltitude_m/1000,second.summary.peakAltitude_m/1000],
+    ['Peak speed (km/s)',first.summary.peakSpeed_mps/1000,second.summary.peakSpeed_mps/1000],
+    ['Maximum q (kPa)',first.summary.maxQ_Pa/1000,second.summary.maxQ_Pa/1000],
+    ['Final mass (kg)',first.summary.finalMass_kg,second.summary.finalMass_kg],
+    ['Duration (s)',first.summary.duration_s,second.summary.duration_s],
+    ['Samples',first.summary.samples,second.summary.samples],
+  ] as Array<[string,number,number]>:[],[first,second]);
+  if(runs.length<2) return <div className="workspace workspace--centered"><EmptyState title="Two runs are required" description="Comparison uses actual stored run outputs. Execute a second scenario or repeat with different settings." action={<button className="button button--primary" onClick={()=>setWorkspace('plan')}><Plus size={16}/>Create another run</button>}/></div>;
+  return <div className="workspace workspace--comparison"><aside className="workspace__side workspace__side--left"><Panel title="Run A"><label className="field"><span>Baseline run</span><select value={first.id} onChange={event=>setFirstId(event.target.value)}>{runs.map(run=><option key={run.id} value={run.id}>{run.input.name}</option>)}</select></label><dl className="data-list"><div><dt>Body</dt><dd>{first.input.bodyId}</dd></div><div><dt>Scenario</dt><dd>{first.input.scenario}</dd></div><div><dt>Created</dt><dd>{new Date(first.createdAt).toLocaleString()}</dd></div></dl></Panel><Panel title="Run B"><label className="field"><span>Comparison run</span><select value={second.id} onChange={event=>setSecondId(event.target.value)}>{runs.map(run=><option key={run.id} value={run.id}>{run.input.name}</option>)}</select></label><dl className="data-list"><div><dt>Body</dt><dd>{second.input.bodyId}</dd></div><div><dt>Scenario</dt><dd>{second.input.scenario}</dd></div><div><dt>Created</dt><dd>{new Date(second.createdAt).toLocaleString()}</dd></div></dl></Panel><Panel title="Comparison rule"><p className="notice">Outputs are compared numerically. No claim of an optimum is made without a stated objective and constraints.</p></Panel></aside><main className="comparison-main"><div className="comparison-heading"><GitCompareArrows size={25}/><div><span className="eyebrow">Run comparison</span><h1>ACTUAL OUTPUT OVERLAY</h1></div></div><div className="comparison-charts"><TelemetryChart title="Altitude" unit="km" height={245} series={[{name:'Run A',data:pairs(first.telemetry.t,first.telemetry.altitude,1000)},{name:'Run B',data:pairs(second.telemetry.t,second.telemetry.altitude,1000),dash:true}]}/><TelemetryChart title="Speed" unit="km/s" height={245} series={[{name:'Run A',data:pairs(first.telemetry.t,first.telemetry.speed,1000)},{name:'Run B',data:pairs(second.telemetry.t,second.telemetry.speed,1000),dash:true}]}/><TelemetryChart title="Dynamic pressure" unit="kPa" height={245} series={[{name:'Run A',data:pairs(first.telemetry.t,first.telemetry.q,1000)},{name:'Run B',data:pairs(second.telemetry.t,second.telemetry.q,1000),dash:true}]}/><TelemetryChart title="Mass" unit="kg" height={245} series={[{name:'Run A',data:pairs(first.telemetry.t,first.telemetry.mass)},{name:'Run B',data:pairs(second.telemetry.t,second.telemetry.mass),dash:true}]}/></div></main><aside className="workspace__side workspace__side--right workspace__side--wide"><Panel title="Difference table"><div className="comparison-table"><div className="comparison-table__head"><span>Metric</span><span>Run A</span><span>Run B</span><span>Δ</span><span>Δ %</span></div>{rows.map(([label,a,b])=>{const d=difference(a,b);return <div key={label}><strong>{label}</strong><span>{formatNumber(a,2)}</span><span>{formatNumber(b,2)}</span><span>{d.absolute>=0?'+':''}{formatNumber(d.absolute,2)}</span><span>{d.percent===null?'N/A':`${d.percent>=0?'+':''}${formatNumber(d.percent,1)}%`}</span></div>})}</div></Panel><Panel title="Compatibility"><p className="status-line"><span className={`status-dot ${first.input.bodyId===second.input.bodyId?'status-dot--ok':''}`}/>{first.input.bodyId===second.input.bodyId?'Same central body':'Different bodies — interpret carefully'}</p><p className="status-line"><span className={`status-dot ${first.input.scenario===second.input.scenario?'status-dot--ok':''}`}/>{first.input.scenario===second.input.scenario?'Same scenario type':'Different scenario types'}</p></Panel></aside></div>;
+}

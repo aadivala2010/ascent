@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "constants": {
+    "g0_mps2": 9.80665,
+    "bodies": [
+      {
+        "id": "earth",
+        "mu_m3s2": 398600435507000.0,
+        "radius_m": 6371000,
+        "omega_rad_s": 7.292115e-05,
+        "density0_kgm3": 1.225,
+        "pressure0_Pa": 101325,
+        "scaleHeight_m": 8500
+      },
+      {
+        "id": "moon",
+        "mu_m3s2": 4902800118000.0,
+        "radius_m": 1737400,
+        "omega_rad_s": 2.6617e-06,
+        "density0_kgm3": 0,
+        "pressure0_Pa": 0,
+        "scaleHeight_m": null
+      },
+      {
+        "id": "mars",
+        "mu_m3s2": 42828375816000.0,
+        "muNote": "Mars-system approximation",
+        "radius_m": 3389500,
+        "omega_rad_s": 7.0882e-05,
+        "density0_kgm3": 0.02,
+        "pressure0_Pa": 610,
+        "scaleHeight_m": 11100
+      }
+    ]
+  },
+  "catalog": [
+    {
+      "id": "falcon9",
+      "name": "Falcon 9",
+      "source": "https://new.spacex.com/vehicles/falcon-9",
+      "publishedFacts": {
+        "height_m": 70,
+        "wetMassPublished_kg": 549054,
+        "seaLevelThrustApprox_N": 7560000
+      },
+      "geometry": "falcon9",
+      "simulationReady": false,
+      "stageData": null,
+      "confidence": "published summary only; no verified complete stage model"
+    },
+    {
+      "id": "falconheavy",
+      "name": "Falcon Heavy",
+      "source": "https://new.spacex.com/vehicles/falcon-heavy",
+      "publishedFacts": {
+        "height_m": 70,
+        "coreCount": 3,
+        "firstStageEngineCount": 27
+      },
+      "geometry": "falconheavy",
+      "simulationReady": false,
+      "stageData": null,
+      "confidence": "published summary only; no verified complete stage model"
+    },
+    {
+      "id": "starship",
+      "name": "Starship / Super Heavy (124.4 m configuration)",
+      "source": "https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/SpaceX%20-%20EU%20Prospectus%20%28Approved%20by%20Bafin%29%20-%20June%205%2C%202026.pdf",
+      "publishedFacts": {
+        "height_m": 124.4,
+        "diameter_m": 9
+      },
+      "geometry": "starship",
+      "simulationReady": false,
+      "stageData": null,
+      "confidence": "published summary only; no verified complete stage model"
+    },
+    {
+      "id": "saturnv",
+      "name": "Saturn V (Apollo family)",
+      "source": "https://www.nasa.gov/learning-resources/for-kids-and-students/what-was-the-saturn-v/",
+      "publishedFacts": {
+        "height_m": 111,
+        "wetMassApprox_kg": 2800000,
+        "stageCount": 3
+      },
+      "geometry": "saturnv",
+      "simulationReady": false,
+      "stageData": null,
+      "confidence": "published summary only; no verified complete stage model"
+    },
+    {
+      "id": "sls",
+      "name": "SLS Block 1",
+      "source": "https://www.nasa.gov/reference/space-launch-system/",
+      "publishedFacts": {
+        "height_m": 98.3,
+        "maxThrustApprox_N": 39144000,
+        "coreDiameter_m": 8.4
+      },
+      "geometry": "sls",
+      "simulationReady": false,
+      "stageData": null,
+      "confidence": "published summary only; no verified complete stage model"
+    },
+    {
+      "id": "electron",
+      "name": "Electron",
+      "source": "https://rocketlabcorp.com/launch/electron/",
+      "publishedFacts": {
+        "height_m": 18,
+        "diameter_m": 1.2,
+        "wetMassPublished_kg": 13000,
+        "payloadLEOPublished_kg": 300,
+        "stageDescription": "2 + kick stage",
+        "firstStageLiftoffThrust_N": 190000,
+        "firstStagePeakThrust_N": 224000,
+        "firstStageIspPublished_s": 311,
+        "secondStageThrust_N": 25800,
+        "secondStageIsp_s": 343
+      },
+      "geometry": "electron",
+      "simulationReady": false,
+      "stageData": null,
+      "confidence": "published summary only; no verified complete stage model"
+    },
+    {
+      "id": "shuttle",
+      "name": "Space Shuttle",
+      "source": "https://www.nasa.gov/reference/the-space-shuttle/",
+      "publishedFacts": {
+        "orbiterCount": 1,
+        "externalTankCount": 1,
+        "solidBoosterCount": 2
+      },
+      "geometry": "shuttle",
+      "simulationReady": false,
+      "stageData": null,
+      "confidence": "published summary only; no verified complete stage model"
+    },
+    {
+      "id": "dragon",
+      "name": "Crew Dragon",
+      "source": "https://www.nasa.gov/commercial-crew-program-press-kit/",
+      "publishedFacts": {},
+      "geometry": "capsule",
+      "simulationReady": false,
+      "stageData": null,
+      "confidence": "published summary only; no verified complete stage model"
+    }
+  ],
+  "syntheticPresets": [
+    {
+      "id": "trainer",
+      "name": "ASCENT T1 — vertical flight trainer",
+      "height_m": 5,
+      "diameter_m": 0.7,
+      "payload_kg": 20,
+      "stages": [
+        {
+          "dryMass_kg": 80,
+          "propellantMass_kg": 100,
+          "thrustSea_N": 3200,
+          "thrustVac_N": 3500,
+          "ispSea_s": 220,
+          "ispVac_s": 240,
+          "dragCoefficient": 0.45,
+          "visualHeightFraction": 0.85
+        }
+      ],
+      "defaultScenario": "vertical",
+      "status": "synthetic educational"
+    },
+    {
+      "id": "two-stage",
+      "name": "ASCENT T2 — staging trainer",
+      "height_m": 12,
+      "diameter_m": 1.1,
+      "payload_kg": 100,
+      "stages": [
+        {
+          "dryMass_kg": 350,
+          "propellantMass_kg": 1400,
+          "thrustSea_N": 35000,
+          "thrustVac_N": 38000,
+          "ispSea_s": 250,
+          "ispVac_s": 275,
+          "dragCoefficient": 0.45,
+          "visualHeightFraction": 0.65
+        },
+        {
+          "dryMass_kg": 100,
+          "propellantMass_kg": 300,
+          "thrustSea_N": 6000,
+          "thrustVac_N": 7000,
+          "ispSea_s": 265,
+          "ispVac_s": 290,
+          "dragCoefficient": 0.4,
+          "visualHeightFraction": 0.25
+        }
+      ],
+      "defaultScenario": "vertical",
+      "status": "synthetic educational"
+    },
+    {
+      "id": "orbital-test",
+      "name": "ASCENT O1 — orbit demonstration",
+      "height_m": 2,
+      "diameter_m": 1,
+      "payload_kg": 100,
+      "stages": [],
+      "defaultScenario": "circular-orbit",
+      "status": "synthetic educational; initialize in orbit, no launch claim"
+    }
+  ],
+  "extensionBacklog": [
+    "Falcon 1",
+    "Saturn I",
+    "Saturn IB",
+    "Mercury-Redstone",
+    "Mercury-Atlas",
+    "Gemini-Titan",
+    "Apollo CSM",
+    "Lunar Module",
+    "Orion",
+    "Delta II",
+    "Delta IV Heavy",
+    "Atlas V",
+    "Vulcan",
+    "New Shepard",
+    "New Glenn",
+    "Ariane 4",
+    "Ariane 5",
+    "Ariane 6",
+    "Vega",
+    "Soyuz",
+    "Proton",
+    "N1",
+    "H-IIA",
+    "H3",
+    "PSLV",
+    "GSLV",
+    "LVM3",
+    "Long March 2F",
+    "Long March 5"
+  ]
+}

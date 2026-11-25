@@ -1,0 +1,11 @@
+node_modules/
+dist/
+artifacts/
+playwright-report/
+test-results/
+coverage/
+.DS_Store
+Thumbs.db
+public/assets/asset-log.json
+public/assets/planets/
+public/assets/models/

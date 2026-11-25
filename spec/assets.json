@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "downloadPolicy": "Only listed URLs; bounded retries, verify response type and decoding, cache locally, log checksum, record changes and credits; no web search or unrelated asset acquisition. If terms change or download fails, use fallback. No logo/endorsement claims.",
+  "assets": [
+    {
+      "id": "earth-day",
+      "url": "https://extension.solarsystemscope.com/textures/download/8k_earth_daymap.jpg",
+      "local": "public/assets/planets/earth-day.jpg",
+      "license": "CC BY 4.0",
+      "credit": "Solar System Scope / INOVE",
+      "source": "https://extension.solarsystemscope.com/textures/",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "fallback": "generate deterministic schematic body texture; mark approximate",
+      "verification": "direct link found on publisher page; binary not downloaded in handoff",
+      "processing": "convert TIFF to PNG with sharp or equivalent; generate 1K/2K/4K versions; preserve color-space semantics"
+    },
+    {
+      "id": "earth-night",
+      "url": "https://extension.solarsystemscope.com/textures/download/8k_earth_nightmap.jpg",
+      "local": "public/assets/planets/earth-night.jpg",
+      "license": "CC BY 4.0",
+      "credit": "Solar System Scope / INOVE",
+      "source": "https://extension.solarsystemscope.com/textures/",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "fallback": "omit layer; no fake source attribution",
+      "verification": "direct link found on publisher page; binary not downloaded in handoff",
+      "processing": "convert TIFF to PNG with sharp or equivalent; generate 1K/2K/4K versions; preserve color-space semantics"
+    },
+    {
+      "id": "earth-clouds",
+      "url": "https://extension.solarsystemscope.com/textures/download/8k_earth_clouds.jpg",
+      "local": "public/assets/planets/earth-clouds.jpg",
+      "license": "CC BY 4.0",
+      "credit": "Solar System Scope / INOVE",
+      "source": "https://extension.solarsystemscope.com/textures/",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "fallback": "omit layer; no fake source attribution",
+      "verification": "direct link found on publisher page; binary not downloaded in handoff",
+      "processing": "convert TIFF to PNG with sharp or equivalent; generate 1K/2K/4K versions; preserve color-space semantics"
+    },
+    {
+      "id": "earth-normal",
+      "url": "https://extension.solarsystemscope.com/textures/download/8k_earth_normal_map.tif",
+      "local": "public/assets/planets/earth-normal.png",
+      "license": "CC BY 4.0",
+      "credit": "Solar System Scope / INOVE",
+      "source": "https://extension.solarsystemscope.com/textures/",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "fallback": "omit layer; no fake source attribution",
+      "verification": "direct link found on publisher page; binary not downloaded in handoff",
+      "processing": "convert TIFF to PNG with sharp or equivalent; generate 1K/2K/4K versions; preserve color-space semantics"
+    },
+    {
+      "id": "earth-specular",
+      "url": "https://extension.solarsystemscope.com/textures/download/8k_earth_specular_map.tif",
+      "local": "public/assets/planets/earth-specular.png",
+      "license": "CC BY 4.0",
+      "credit": "Solar System Scope / INOVE",
+      "source": "https://extension.solarsystemscope.com/textures/",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "fallback": "omit layer; no fake source attribution",
+      "verification": "direct link found on publisher page; binary not downloaded in handoff",
+      "processing": "convert TIFF to PNG with sharp or equivalent; generate 1K/2K/4K versions; preserve color-space semantics"
+    },
+    {
+      "id": "mars",
+      "url": "https://extension.solarsystemscope.com/textures/download/8k_mars.jpg",
+      "local": "public/assets/planets/mars.jpg",
+      "license": "CC BY 4.0",
+      "credit": "Solar System Scope / INOVE",
+      "source": "https://extension.solarsystemscope.com/textures/",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "fallback": "generate deterministic schematic body texture; mark approximate",
+      "verification": "direct link found on publisher page; binary not downloaded in handoff",
+      "processing": "convert TIFF to PNG with sharp or equivalent; generate 1K/2K/4K versions; preserve color-space semantics"
+    },
+    {
+      "id": "moon",
+      "url": "https://extension.solarsystemscope.com/textures/download/8k_moon.jpg",
+      "local": "public/assets/planets/moon.jpg",
+      "license": "CC BY 4.0",
+      "credit": "Solar System Scope / INOVE",
+      "source": "https://extension.solarsystemscope.com/textures/",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "fallback": "generate deterministic schematic body texture; mark approximate",
+      "verification": "direct link found on publisher page; binary not downloaded in handoff",
+      "processing": "convert TIFF to PNG with sharp or equivalent; generate 1K/2K/4K versions; preserve color-space semantics"
+    },
+    {
+      "id": "starfield",
+      "url": "https://extension.solarsystemscope.com/textures/download/8k_stars_milky_way.jpg",
+      "local": "public/assets/planets/starfield.jpg",
+      "license": "CC BY 4.0",
+      "credit": "Solar System Scope / INOVE",
+      "source": "https://extension.solarsystemscope.com/textures/",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "fallback": "omit layer; no fake source attribution",
+      "verification": "direct link found on publisher page; binary not downloaded in handoff",
+      "processing": "convert TIFF to PNG with sharp or equivalent; generate 1K/2K/4K versions; preserve color-space semantics"
+    },
+    {
+      "id": "saturnv",
+      "url": "https://assets.science.nasa.gov/content/dam/science/cds/3d/resources/model/saturn-v/Saturn%20V.glb",
+      "local": "public/assets/models/saturnv.glb",
+      "license": "NASA media usage guidelines; NASA-origin model, no endorsement, retain attribution; not blanket MIT",
+      "credit": "NASA / Michael D. Carbajal",
+      "source": "https://science.nasa.gov/3d-resources/saturn-v/",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "fallback": "procedural profile in GEOMETRY.md",
+      "verification": "publisher lists exact GLB; binary not downloaded or inspected in handoff",
+      "processing": "verify GLB magic and decode; normalize axis/scale; if geometry unsuitable use specified fallback"
+    },
+    {
+      "id": "shuttle",
+      "url": "https://assets.science.nasa.gov/content/dam/science/cds/3d/resources/model/space-shuttle-%28a%29/Space%20Shuttle%20%28A%29.glb",
+      "local": "public/assets/models/shuttle.glb",
+      "license": "NASA media usage guidelines; NASA-origin model, no endorsement, retain attribution; not blanket MIT",
+      "credit": "NASA / Michael D. Carbajal",
+      "source": "https://science.nasa.gov/3d-resources/space-shuttle-a/",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "fallback": "procedural profile in GEOMETRY.md",
+      "verification": "publisher lists exact GLB; binary not downloaded or inspected in handoff",
+      "processing": "verify GLB magic and decode; normalize axis/scale; if geometry unsuitable use specified fallback"
+    }
+  ],
+  "generated": [
+    {
+      "id": "falcon9",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    },
+    {
+      "id": "falconheavy",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    },
+    {
+      "id": "starship",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    },
+    {
+      "id": "sls",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    },
+    {
+      "id": "electron",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    },
+    {
+      "id": "custom",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    },
+    {
+      "id": "capsule",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    },
+    {
+      "id": "lander",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    },
+    {
+      "id": "launchpad",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    },
+    {
+      "id": "catch-tower",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    },
+    {
+      "id": "smoke",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    },
+    {
+      "id": "audio",
+      "recipe": "GEOMETRY.md",
+      "license": "original project MIT code / original geometry"
+    }
+  ]
+}

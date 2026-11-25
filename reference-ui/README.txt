@@ -1,0 +1,1 @@
+ASCENT visual direction only. All numbers, mission statuses, data, graphs, vehicle internals and timing in the generated images are illustrative, not engineering sources. Use the master build specification as the authority for functionality and design consistency.

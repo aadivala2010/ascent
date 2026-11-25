@@ -1,0 +1,14 @@
+import { defineConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  base: './',
+  plugins: [react()],
+  worker: { format: 'es' },
+  build: { target: 'es2022', sourcemap: true },
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./tests/setup.ts'],
+    coverage: { reporter: ['text', 'json-summary'] },
+  },
+});

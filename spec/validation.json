@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "note": "Agency-calculated analytic references, NOT executed simulator results. Relative tolerance is abs(actual-expected)/abs(expected).",
+  "cases": [
+    {
+      "id": "ideal-dv",
+      "input": {
+        "m0_kg": 1000,
+        "mf_kg": 500,
+        "isp_s": 300
+      },
+      "expected": {
+        "deltaV_mps": 2039.2355394714561
+      },
+      "absoluteTolerance": 0.01
+    },
+    {
+      "id": "constant-accel",
+      "input": {
+        "x0_m": 10,
+        "v0_mps": 3,
+        "a_mps2": 2,
+        "time_s": 10,
+        "dt_s": 0.1
+      },
+      "expected": {
+        "x_m": 140,
+        "v_mps": 23
+      },
+      "absoluteTolerance": 1e-08
+    },
+    {
+      "id": "drag",
+      "input": {
+        "rho": 1.225,
+        "speed_mps": 100,
+        "cd": 0.5,
+        "area_m2": 2
+      },
+      "expected": {
+        "drag_N": 6125,
+        "q_Pa": 6125
+      },
+      "absoluteTolerance": 1e-08
+    },
+    {
+      "id": "circular-orbit",
+      "input": {
+        "mu": 398600435507000.0,
+        "radius_m": 6771000,
+        "initialPosition_m": [
+          6771000,
+          0,
+          0
+        ],
+        "initialVelocity_mps": [
+          0,
+          7672.598587818517,
+          0
+        ],
+        "dt_s": 1,
+        "duration_s": 5544.8551397511565,
+        "vacuum": true
+      },
+      "expected": {
+        "speed_mps": 7672.598587818517,
+        "period_s": 5544.8551397511565,
+        "escape_mps": 10850.692981537604,
+        "specificEnergy_Jkg": -29434384.544897355,
+        "eccentricity": 0,
+        "altitude_m": 400000
+      },
+      "tolerances": {
+        "calculatorRelative": 1e-09,
+        "eccentricityAbsolute": 1e-08,
+        "relativeEnergyDrift": 1e-07,
+        "relativeAngularMomentumDrift": 1e-07,
+        "maxRadiusDrift_m": 5,
+        "endPositionError_m": 10
+      }
+    },
+    {
+      "id": "mass-stage",
+      "input": {
+        "stageDry_kg": 80,
+        "stagePropellant_kg": 100,
+        "carriedMass_kg": 20,
+        "burned_kg": 100
+      },
+      "expected": {
+        "initialMass_kg": 200,
+        "preDiscardMass_kg": 100,
+        "postDiscardMass_kg": 20,
+        "discardedMass_kg": 80,
+        "consumed_kg": 100
+      },
+      "absoluteTolerance": 1e-08
+    },
+    {
+      "id": "earth-sea-level",
+      "input": {
+        "h_m": 0,
+        "model": "layered"
+      },
+      "expected": {
+        "temperature_K": 288.15,
+        "pressure_Pa": 101325,
+        "density_kgm3": 1.225000018124288
+      },
+      "absoluteTolerance": 1e-06
+    },
+    {
+      "id": "moon-vacuum",
+      "input": {
+        "body": "moon",
+        "h_m": 1000
+      },
+      "expected": {
+        "density": 0,
+        "pressure": 0,
+        "drag_N": 0
+      },
+      "absoluteTolerance": 0
+    },
+    {
+      "id": "convergence",
+      "input": {
+        "orbitCase": "circular-orbit",
+        "steps_s": [
+          16,
+          8,
+          4,
+          2,
+          1
+        ]
+      },
+      "expected": {
+        "rule": "report measured errors; fine-step error must not exceed coarse-step error beyond numerical roundoff; no fabricated values"
+      }
+    },
+    {
+      "id": "repeat",
+      "input": {
+        "preset": "trainer",
+        "sameConfigTwice": true
+      },
+      "expected": {
+        "rule": "identical arrays/events within 1e-10 relative on same runtime; do not include wall clock in simulation"
+      }
+    }
+  ]
+}
