@@ -4,6 +4,7 @@ artifacts/
 playwright-report/
 test-results/
 coverage/
+*.tsbuildinfo
 .DS_Store
 Thumbs.db
 public/assets/asset-log.json
